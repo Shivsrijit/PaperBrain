@@ -189,3 +189,10 @@ STUDENT_NAME_HERE,ROLL_NO_HERE,Q2,4,4,1,1,The answer is correct and complete.
 STUDENT_NAME_HERE,ROLL_NO_HERE,Q3,Jupiter,Jupiter,2,2,Excellent! Your answer is perfectly correct and complete.
 STUDENT_NAME_HERE,ROLL_NO_HERE,Q4,Vyasa,Vyasa,3,3,Excellent answer! You have correctly identified Vyasa.
 STUDENT_NAME_HERE,ROLL_NO_HERE,Q5,101°C,100°C,2,0,The answer provided is incorrect. Ensure precision in stating factual values like boiling points.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q1,ca,New Delhi,2,0,The answer is incorrect. Please review the capital of India.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q2,6,4,1,0,The answer provided is incorrect. Please re-check your calculation.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q3,,Jupiter,2,0,No answer was provided. Please ensure you attempt all questions.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q4,1c1,Vyasa,3,0,Your answer is incorrect. The author of the Mahabharata is Vyasa.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q5,ab,100°C,2,0,"Your answer is incorrect. The correct answer is 100°C, which is the boiling point of water."
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q6,b,N/A,0,0,No reference answer found
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q7,5,N/A,0,0,No reference answer found
