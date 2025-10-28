@@ -1,0 +1,11 @@
+Flask==3.0.3
+Flask-Cors==4.0.1
+
+# Agent dependencies
+opencv-python
+numpy
+matplotlib
+easyocr
+google-generativeai
+python-dotenv
+mcp
