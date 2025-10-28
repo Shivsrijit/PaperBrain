@@ -1,0 +1,15 @@
+should save a json in this format
+
+{
+            "student_info": {
+                "name": "Shivsrijit Verma",
+                "roll_no": "AID23B015"
+            },
+            "answers": {
+                "Q1": "New Delhi",
+                "Q2": "4",
+                "Q3": "Jupiter",
+                "Q4": "Vyasa",
+                "Q5": "100°C"
+            }
+        }
