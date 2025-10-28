@@ -224,8 +224,8 @@ def process_new_student():
     print(f"Updated results saved in JSON and CSV.")
 
     # Cleanup
-    os.remove(latest_file)
-    print(f"Removed processed file: {latest_file}")
+    # os.remove(latest_file)
+    # print(f"Removed processed file: {latest_file}")
 
 
 # --- Run Script ---
