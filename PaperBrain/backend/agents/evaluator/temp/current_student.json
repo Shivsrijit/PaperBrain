@@ -1,40 +1,40 @@
 {
     "student_info": {
-        "name": "Shivsrijit Verma",
-        "roll_no": "AID23B015"
+        "name": "STUDENT_NAME_HERE",
+        "roll_no": "ROLL_NO_HERE"
     },
-    "total_awarded_marks": 10,
+    "total_awarded_marks": 8,
     "total_possible_marks": 10,
     "answers": {
         "Q1": {
             "answer": "New Delhi",
             "awarded_marks": 2,
             "max_marks": 2,
-            "feedback": "Excellent! Your answer is perfectly correct and matches the reference."
+            "feedback": "Correct answer, well done!"
         },
         "Q2": {
             "answer": "4",
             "awarded_marks": 1,
             "max_marks": 1,
-            "feedback": "Correct answer. Well done!"
+            "feedback": "The answer is correct and complete."
         },
         "Q3": {
             "answer": "Jupiter",
             "awarded_marks": 2,
             "max_marks": 2,
-            "feedback": "Excellent work! Your answer is perfectly correct and precise."
+            "feedback": "Excellent! Your answer is perfectly correct and complete."
         },
         "Q4": {
             "answer": "Vyasa",
             "awarded_marks": 3,
             "max_marks": 3,
-            "feedback": "Your answer is perfectly correct and complete."
+            "feedback": "Excellent answer! You have correctly identified Vyasa."
         },
         "Q5": {
-            "answer": "100°C",
-            "awarded_marks": 2,
+            "answer": "101°C",
+            "awarded_marks": 0,
             "max_marks": 2,
-            "feedback": "Your answer is perfectly correct and complete."
+            "feedback": "The answer provided is incorrect. Ensure precision in stating factual values like boiling points."
         }
     }
 }

@@ -16,7 +16,7 @@ MODEL_NAME = "gemini-2.5-flash"
 model = genai.GenerativeModel(MODEL_NAME)
 
 # --- File Paths ---
-INCOMING_FOLDER = "./new_submissions" 
+INCOMING_FOLDER = "../text_recognition/Outputs" 
 TEMP_DIR = "./temp"
 INPUTS_DIR = "./inputs"
 PROMPTS_DIR = "./prompts"
