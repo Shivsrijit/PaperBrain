@@ -23,47 +23,51 @@ PaperBrain uses a **multi-agent AI pipeline** designed for high accuracy, modula
 
 ## ⚙️ System Architecture
 
-## ⚙️ System Architecture
-
-```text
-               ┌────────────────────────────┐
-               │          INPUTS            │
-               │────────────────────────────│
-               │ • Question Paper           │
-               │ • Scanned Answer Script    │
-               │ • Reference Answer Key     │
-               └──────────────┬─────────────┘
-                              │
-                              ▼
-                   ┌───────────────────────┐
-                   │     PLANNING AGENT    │
-                   │  (Task Orchestration) │
-                   └────────────┬──────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│                           INPUTS                                │
+├─────────────────────────────────────────────────────────────────┤
+│  • Question Paper                                               │
+│  • Scanned Answer Script                                        │
+│  • Reference Answer Key                                         │
+└────────────────────────────────┬────────────────────────────────┘
+                                 │
+                                 ▼
+                    ┌────────────────────────┐
+                    │   PLANNING AGENT       │
+                    │  (Task Orchestration)  │
+                    └───────────┬────────────┘
                                 │
-          ┌─────────────────────┼─────────────────────┐
-          │                     │                     │
-          ▼                     ▼                     ▼
- ┌────────────────┐     ┌────────────────┐     ┌────────────────┐
- │  ALIGN AGENT   │     │   FIND AGENT   │     │   READ AGENT   │
- │ (ORB +          │     │ (Contours &    │     │ (OCR:          │
- │ Homography)     │     │ Region Detect) │     │ Tesseract/Easy)│
- └────────┬────────┘     └────────┬────────┘     └────────┬────────┘
-          │                     │                     │
-          └─────────────────────┴────────────┬─────────┘
-                                            ▼
-                                 ┌────────────────────┐
-                                 │   GRADE AGENT      │
-                                 │ (Semantic Matching │
-                                 │   & Scoring)       │
-                                 └────────┬───────────┘
-                                          │
-                                          ▼
-                             ┌──────────────────────────┐
-                             │     OUTPUT REPORT        │
-                             │ • Question-wise Marks    │
-                             │ • Total Score            │
-                             │ • Flagged Responses      │
-                             └──────────────────────────┘
+                ┌───────────────┼───────────────┐
+                │               │               │
+                ▼               ▼               ▼
+       ┌────────────┐  ┌────────────┐  ┌────────────┐
+       │   ALIGN    │  │    FIND    │  │    READ    │
+       │   AGENT    │  │   AGENT    │  │   AGENT    │
+       ├────────────┤  ├────────────┤  ├────────────┤
+       │ ORB +      │  │ Contours & │  │ OCR:       │
+       │ Homography │  │ Region     │  │ Tesseract/ │
+       │            │  │ Detection  │  │ EasyOCR    │
+       └─────┬──────┘  └─────┬──────┘  └─────┬──────┘
+             │               │               │
+             └───────────────┴───────┬───────┘
+                                     │
+                                     ▼
+                          ┌──────────────────┐
+                          │  GRADE AGENT     │
+                          ├──────────────────┤
+                          │ Semantic         │
+                          │ Matching &       │
+                          │ Scoring          │
+                          └────────┬─────────┘
+                                   │
+                                   ▼
+                       ┌───────────────────────┐
+                       │   OUTPUT REPORT       │
+                       ├───────────────────────┤
+                       │ • Question-wise Marks │
+                       │ • Total Score         │
+                       │ • Flagged Responses   │
+                       └───────────────────────┘
 
 **Key Capabilities:**  
 - ✅ Automatic alignment of distorted answer sheets  
