@@ -196,3 +196,45 @@ STUDENT_NAME_HERE,ROLL_NO_HERE,Q4,1c1,Vyasa,3,0,Your answer is incorrect. The au
 STUDENT_NAME_HERE,ROLL_NO_HERE,Q5,ab,100°C,2,0,"Your answer is incorrect. The correct answer is 100°C, which is the boiling point of water."
 STUDENT_NAME_HERE,ROLL_NO_HERE,Q6,b,N/A,0,0,No reference answer found
 STUDENT_NAME_HERE,ROLL_NO_HERE,Q7,5,N/A,0,0,No reference answer found
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q1,a,New Delhi,2,0,The answer 'a' is incorrect. Please review the capital of India.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q2,c,4,1,0,The answer provided is incorrect. Please ensure your response matches the expected numerical value.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q3,b,Jupiter,2,0,The answer 'b' is incorrect and does not match the reference. Please provide the correct factual answer.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q4,4,Vyasa,3,0,The answer provided is incorrect and does not match the reference answer. Please ensure you provide the correct factual information relevant to the question.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q5,c,100°C,2,0,"Your answer is incorrect and incomplete. Please provide the full temperature value, including the number and unit."
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q6,b,N/A,0,0,No reference answer found
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q7,5,N/A,0,0,No reference answer found
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q8,a,Jupiter,0,0,"The answer 'a' is incorrect. Even though no marks are allocated for this question, ensure your answers are accurate."
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q9,c,Vyasa,0,0,The answer 'c' is incorrect. The correct answer is Vyasa.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q10,b,100°C,0,0,"The answer 'b' is incorrect and does not match the reference. However, this question carries no marks."
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q11,4,Paris,0,0,Your answer is incorrect and does not match the reference. The correct answer is Paris.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q12,c,4,0,0,No marks can be awarded as the maximum marks for this question is 0.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q13,b,Jupiter,0,0,Your answer 'b' is incorrect; the correct answer is 'Jupiter'. This question carried no marks.
+STUDENT_NAME_HERE,ROLL_NO_HERE,Q14,5,Vyasa,0,0,Your answer '5' is incorrect. The author of Mahabharata is Vyasa.
+STUDENT_NAME_HERE,1121,Q1,ca,New Delhi,2,0,The answer is incorrect. Please review the capital city of India.
+STUDENT_NAME_HERE,1121,Q2,b,4,1,0,The answer provided is incorrect. Please review the question and the correct solution.
+STUDENT_NAME_HERE,1121,Q3,a,Jupiter,2,0,The answer 'a' is incorrect. Please refer to the correct name for the largest planet.
+STUDENT_NAME_HERE,1121,Q4,c,Vyasa,3,0,The answer 'c' is incorrect. Please review the correct author of the Mahabharata.
+STUDENT_NAME_HERE,1121,Q5,a,100°C,2,0,The answer 'a' is incorrect. Please provide the correct temperature for the boiling point of water.
+STUDENT_NAME_HERE,1121,Q6,b,Paris,0,0,The answer 'b' is incorrect. The correct answer is 'Paris'.
+STUDENT_NAME_HERE,1121,Q7,5,4,0,0,Your answer of 5 is incorrect; the correct answer is 4. This question carried no marks.
+STUDENT_NAME_HERE,1121,Q8,a,Jupiter,0,0,Your answer 'a' is incorrect and does not match the reference answer 'Jupiter'.
+STUDENT_NAME_HERE,1121,Q9,c,Vyasa,0,0,The answer 'c' is incorrect. The correct answer is Vyasa.
+STUDENT_NAME_HERE,1121,Q10,b,100°C,0,0,The answer 'b' is incorrect and irrelevant to the reference answer. Please provide a factual and relevant response.
+STUDENT_NAME_HERE,1121,Q11,4,Paris,0,0,Your answer is incorrect. No marks can be awarded as the maximum marks for this question is 0.
+STUDENT_NAME_HERE,1121,Q12,c,4,0,0,The answer 'c' is incorrect. The correct answer is '4'. Please review basic arithmetic.
+STUDENT_NAME_HERE,1121,Q13,b,Jupiter,0,0,The provided answer 'b' is incorrect and does not match the reference answer 'Jupiter'.
+STUDENT_NAME_HERE,1121,Q14,5,Vyasa,0,0,Your answer '5' is incorrect. The expected answer was 'Vyasa'.
+STUDENT_NAME_HERE,1121,Q8,a,Jupiter,0,0,The answer 'a' is incorrect and does not match the reference answer 'Jupiter'.
+STUDENT_NAME_HERE,1121,Q9,c,Vyasa,0,0,The answer 'c' is incorrect. The correct author is Vyasa.
+STUDENT_NAME_HERE,1121,Q10,b,100°C,0,0,"The provided answer 'b' is incorrect and does not relate to the reference answer '100°C'. As the maximum marks for this question is 0, no marks are awarded."
+STUDENT_NAME_HERE,1121,Q11,4,Paris,0,0,The student's answer '4' is incorrect; the correct answer is 'Paris'. There is no conceptual understanding demonstrated for this specific question.
+STUDENT_NAME_HERE,1121,Q12,c,4,0,0,"The student's answer 'c' is incorrect. The correct answer is 4, as indicated by the reference and simple arithmetic."
+STUDENT_NAME_HERE,1121,Q13,b,Jupiter,0,0,The answer 'b' is incorrect. The correct answer is 'Jupiter'.
+STUDENT_NAME_HERE,1121,Q14,5,Vyasa,0,0,The student's answer '5' is incorrect and does not match the reference answer 'Vyasa'. No marks can be awarded as the maximum marks for this question is 0.
+STUDENT_NAME_HERE,1121,Q1,ca,New Delhi,2,0,"Your answer ""ca"" is incorrect. The correct capital of India is New Delhi."
+STUDENT_NAME_HERE,1121,Q2,b,4,1,0,"Your answer 'b' is incorrect. The correct answer is '4'. Please re-evaluate the problem, likely simple arithmetic given the context."
+STUDENT_NAME_HERE,1121,Q3,a,Jupiter,2,0,Your answer 'a' is incorrect. The correct answer is 'Jupiter'.
+STUDENT_NAME_HERE,1121,Q4,c,Vyasa,3,0,"The answer 'c' is incorrect. The correct author is Vyasa, as stated in the reference material."
+STUDENT_NAME_HERE,1121,Q5,a,100°C,2,0,The answer provided is incorrect. Please review the topic related to the boiling point of water.
+STUDENT_NAME_HERE,1121,Q6,b,Paris,0,0,"The answer 'b' is incorrect. Please provide the correct answer, 'Paris'."
+STUDENT_NAME_HERE,1121,Q7,5,4,0,0,"The answer is incorrect. Even though the question is about simple arithmetic, the maximum marks are 0, so no marks can be awarded."

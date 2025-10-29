@@ -1,40 +1,94 @@
 {
     "student_info": {
         "name": "STUDENT_NAME_HERE",
-        "roll_no": "ROLL_NO_HERE"
+        "roll_no": "1121"
     },
-    "total_awarded_marks": 8,
+    "total_awarded_marks": 0,
     "total_possible_marks": 10,
     "answers": {
-        "Q1": {
-            "answer": "New Delhi",
-            "awarded_marks": 2,
-            "max_marks": 2,
-            "feedback": "Correct answer, well done!"
+        "Q8": {
+            "answer": "a",
+            "awarded_marks": 0,
+            "max_marks": 0,
+            "feedback": "The answer 'a' is incorrect and does not match the reference answer 'Jupiter'."
         },
-        "Q2": {
+        "Q9": {
+            "answer": "c",
+            "awarded_marks": 0,
+            "max_marks": 0,
+            "feedback": "The answer 'c' is incorrect. The correct author is Vyasa."
+        },
+        "Q10": {
+            "answer": "b",
+            "awarded_marks": 0,
+            "max_marks": 0,
+            "feedback": "The provided answer 'b' is incorrect and does not relate to the reference answer '100°C'. As the maximum marks for this question is 0, no marks are awarded."
+        },
+        "Q11": {
             "answer": "4",
-            "awarded_marks": 1,
-            "max_marks": 1,
-            "feedback": "The answer is correct and complete."
+            "awarded_marks": 0,
+            "max_marks": 0,
+            "feedback": "The student's answer '4' is incorrect; the correct answer is 'Paris'. There is no conceptual understanding demonstrated for this specific question."
         },
-        "Q3": {
-            "answer": "Jupiter",
-            "awarded_marks": 2,
-            "max_marks": 2,
-            "feedback": "Excellent! Your answer is perfectly correct and complete."
+        "Q12": {
+            "answer": "c",
+            "awarded_marks": 0,
+            "max_marks": 0,
+            "feedback": "The student's answer 'c' is incorrect. The correct answer is 4, as indicated by the reference and simple arithmetic."
         },
-        "Q4": {
-            "answer": "Vyasa",
-            "awarded_marks": 3,
-            "max_marks": 3,
-            "feedback": "Excellent answer! You have correctly identified Vyasa."
+        "Q13": {
+            "answer": "b",
+            "awarded_marks": 0,
+            "max_marks": 0,
+            "feedback": "The answer 'b' is incorrect. The correct answer is 'Jupiter'."
         },
-        "Q5": {
-            "answer": "101°C",
+        "Q14": {
+            "answer": "5",
+            "awarded_marks": 0,
+            "max_marks": 0,
+            "feedback": "The student's answer '5' is incorrect and does not match the reference answer 'Vyasa'. No marks can be awarded as the maximum marks for this question is 0."
+        },
+        "Q1": {
+            "answer": "ca",
             "awarded_marks": 0,
             "max_marks": 2,
-            "feedback": "The answer provided is incorrect. Ensure precision in stating factual values like boiling points."
+            "feedback": "Your answer \"ca\" is incorrect. The correct capital of India is New Delhi."
+        },
+        "Q2": {
+            "answer": "b",
+            "awarded_marks": 0,
+            "max_marks": 1,
+            "feedback": "Your answer 'b' is incorrect. The correct answer is '4'. Please re-evaluate the problem, likely simple arithmetic given the context."
+        },
+        "Q3": {
+            "answer": "a",
+            "awarded_marks": 0,
+            "max_marks": 2,
+            "feedback": "Your answer 'a' is incorrect. The correct answer is 'Jupiter'."
+        },
+        "Q4": {
+            "answer": "c",
+            "awarded_marks": 0,
+            "max_marks": 3,
+            "feedback": "The answer 'c' is incorrect. The correct author is Vyasa, as stated in the reference material."
+        },
+        "Q5": {
+            "answer": "a",
+            "awarded_marks": 0,
+            "max_marks": 2,
+            "feedback": "The answer provided is incorrect. Please review the topic related to the boiling point of water."
+        },
+        "Q6": {
+            "answer": "b",
+            "awarded_marks": 0,
+            "max_marks": 0,
+            "feedback": "The answer 'b' is incorrect. Please provide the correct answer, 'Paris'."
+        },
+        "Q7": {
+            "answer": "5",
+            "awarded_marks": 0,
+            "max_marks": 0,
+            "feedback": "The answer is incorrect. Even though the question is about simple arithmetic, the maximum marks are 0, so no marks can be awarded."
         }
     }
 }
