@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     libsm6 \
     libxrender1 \
     libxext6 \
+    libgomp1 \
     tesseract-ocr \
     && rm -rf /var/lib/apt/lists/*
 
@@ -22,10 +23,11 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --upgrade pip
 
 # Install CPU-only PyTorch (required by EasyOCR)
-RUN pip install torch==2.3.1+cpu torchvision==0.14.1+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
+# Fixed: Use compatible versions and correct index URL
+RUN pip install torch==2.3.1 torchvision==0.18.1 --index-url https://download.pytorch.org/whl/cpu
 
 # Install the rest of Python dependencies
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy all backend code into container
 COPY . .
@@ -34,4 +36,4 @@ COPY . .
 EXPOSE 8080
 
 # Start Flask app with Gunicorn
-CMD ["gunicorn", "server:app", "--bind", "0.0.0.0:8080"]
+CMD ["gunicorn", "server:app", "--bind", "0.0.0.0:8080", "--workers", "2", "--timeout", "120"]
