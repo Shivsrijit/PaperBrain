@@ -19,7 +19,7 @@ except ImportError as e:
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
