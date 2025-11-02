@@ -16,14 +16,28 @@ RUN apt-get update && apt-get install -y \
     libxrender1 \
     libxext6 \
     libgomp1 \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    libgl1 \
+    libglx0 \
+    libegl1 \
+    libgles2 \
+    libgbm1 \
     tesseract-ocr \
     && rm -rf /var/lib/apt/lists/*
+
+# Set OpenCV to use headless mode (no GUI dependencies)
+ENV OPENCV_VIDEOIO_PRIORITY_MSMF=0
+ENV QT_QPA_PLATFORM=offscreen
 
 # Upgrade pip
 RUN pip install --upgrade pip
 
+# Install opencv-python-headless instead of opencv-python (if in requirements.txt)
+# This version doesn't require GUI libraries
+RUN pip install opencv-python-headless==4.8.1.78
+
 # Install CPU-only PyTorch (required by EasyOCR)
-# Fixed: Use compatible versions and correct index URL
 RUN pip install torch==2.3.1 torchvision==0.18.1 --index-url https://download.pytorch.org/whl/cpu
 
 # Install the rest of Python dependencies
