@@ -29,15 +29,7 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Ignore all data and document files
-*.json
-*.csv
-*.jpg
-*.jpeg
-*.png
-*.pdf
-*.doc
-*.docx
+
 
 
 # Logs
