@@ -1,4 +1,6 @@
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+// const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_BASE = 'https://paperbrain-production.up.railway.app';
+
 
 export async function apiUpload(answerKeys, answerSheets, relatedDocs = []) {
   const formData = new FormData();
