@@ -1,13 +1,13 @@
 # Use a slim Python image
 FROM python:3.10-slim
 
-# Set working directory
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy requirements first (for caching)
+# Copy only requirements first (for caching)
 COPY requirements.txt .
 
-# Install system dependencies for OpenCV and EasyOCR
+# Install system dependencies for OpenCV, EasyOCR, tesseract
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
@@ -18,18 +18,20 @@ RUN apt-get update && apt-get install -y \
     tesseract-ocr \
     && rm -rf /var/lib/apt/lists/*
 
-# Install CPU-only PyTorch first (required by EasyOCR)
+# Upgrade pip
 RUN pip install --upgrade pip
-RUN pip install torch==2.9.0+cpu torchvision==0.24.0+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
+
+# Install CPU-only PyTorch (required by EasyOCR)
+RUN pip install torch==2.3.1+cpu torchvision==0.14.1+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
 
 # Install the rest of Python dependencies
 RUN pip install -r requirements.txt
 
-# Copy backend code
+# Copy all backend code into container
 COPY . .
 
-# Expose port for Railway
+# Expose port 8080 for Railway
 EXPOSE 8080
 
-# Start the Flask server using gunicorn
+# Start Flask app with Gunicorn
 CMD ["gunicorn", "server:app", "--bind", "0.0.0.0:8080"]
