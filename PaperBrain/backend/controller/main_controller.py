@@ -95,12 +95,18 @@ class PipelineController:
     
         summaries = []
         try:
-            # Add the preprocessor directory to sys.path if not already there
-            if self.preprocessor_dir not in sys.path:
-                sys.path.insert(0, self.preprocessor_dir)
+            # Load the alignment_agent module dynamically
+            alignment_agent_path = os.path.join(self.preprocessor_dir, "alignment_agent.py")
             
-            # Import from alignment_agent module directly
-            from alignment_agent import run_alignment_agent
+            if not os.path.exists(alignment_agent_path):
+                print(f"❌ alignment_agent.py not found at {alignment_agent_path}")
+                return {"status": "error", "message": "alignment_agent.py not found", "summary": {}}
+            
+            spec = importlib.util.spec_from_file_location("alignment_agent", alignment_agent_path)
+            alignment_agent_module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(alignment_agent_module)
+            
+            run_alignment_agent = alignment_agent_module.run_alignment_agent
     
             # Process each answer sheet
             for scan_file in scan_files:
