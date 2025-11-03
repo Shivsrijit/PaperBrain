@@ -31,7 +31,7 @@ ENV QT_QPA_PLATFORM=offscreen
 # Upgrade pip
 RUN pip install --upgrade pip
 
-# Install opencv-python-headless instead of opencv-python (if in requirements.txt)
+# Install opencv-python-headless instead of opencv-python
 RUN pip install opencv-python-headless==4.8.1.78
 
 # Install CPU-only PyTorch (required by EasyOCR)
@@ -40,28 +40,29 @@ RUN pip install torch==2.3.1 torchvision==0.18.1 --index-url https://download.py
 # Install the rest of Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy all backend code into container
+# Copy all backend code into container (INCLUDING agents folder with Python code)
 COPY . .
 
-# Remove the original directories and create symlinks to persistent storage
-RUN rm -rf /app/uploads /app/agents 2>/dev/null || true && \
-    ln -sfn /persistent_data/uploads /app/uploads && \
-    ln -sfn /persistent_data/agents /app/agents
+# Only remove and symlink the uploads directory
+RUN rm -rf /app/uploads 2>/dev/null || true && \
+    ln -sfn /persistent_data/uploads /app/uploads
 
-# Create a startup script that ensures directories exist
+# Create all agent data directories (no symlinks - simpler approach)
+RUN mkdir -p /app/agents/evaluator/inputs/related_docs \
+    /app/agents/evaluator/results/visualizations \
+    /app/agents/evaluator/temp \
+    /app/agents/preprocessor/aligned_outputs \
+    /app/agents/preprocessor/answer_scripts \
+    /app/agents/preprocessor/question_paper_templates \
+    /app/agents/region_selector/agent1_output \
+    /app/agents/region_selector/evaluation_results \
+    /app/agents/text_recognition/debug_crops \
+    /app/agents/text_recognition/Outputs
+
+# Create startup script
 RUN echo '#!/bin/bash\n\
-# Ensure all required directories exist in persistent storage\n\
-mkdir -p /persistent_data/uploads \\\n\
-    /persistent_data/agents/evaluator/inputs/related_docs \\\n\
-    /persistent_data/agents/evaluator/results/visualizations \\\n\
-    /persistent_data/agents/evaluator/temp \\\n\
-    /persistent_data/agents/preprocessor/aligned_outputs \\\n\
-    /persistent_data/agents/preprocessor/answer_scripts \\\n\
-    /persistent_data/agents/preprocessor/question_paper_templates \\\n\
-    /persistent_data/agents/region_selector/agent1_output \\\n\
-    /persistent_data/agents/region_selector/evaluation_results \\\n\
-    /persistent_data/agents/text_recognition/debug_crops \\\n\
-    /persistent_data/agents/text_recognition/Outputs\n\
+# Ensure uploads directory exists in persistent storage\n\
+mkdir -p /persistent_data/uploads\n\
 \n\
 # Start gunicorn\n\
 exec gunicorn server:app --bind 0.0.0.0:8080 --workers 2 --timeout 120\n\
