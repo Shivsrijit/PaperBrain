@@ -32,7 +32,6 @@ ENV QT_QPA_PLATFORM=offscreen
 RUN pip install --upgrade pip
 
 # Install opencv-python-headless instead of opencv-python (if in requirements.txt)
-# This version doesn't require GUI libraries
 RUN pip install opencv-python-headless==4.8.1.78
 
 # Install CPU-only PyTorch (required by EasyOCR)
@@ -44,26 +43,32 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy all backend code into container
 COPY . .
 
-# Create directory structure that mirrors your data paths
-RUN mkdir -p /persistent_data/uploads \
-    /persistent_data/agents/evaluator/inputs/related_docs \
-    /persistent_data/agents/evaluator/results/visualizations \
-    /persistent_data/agents/evaluator/temp \
-    /persistent_data/agents/preprocessor/aligned_outputs \
-    /persistent_data/agents/preprocessor/answer_scripts \
-    /persistent_data/agents/preprocessor/question_paper_templates \
-    /persistent_data/agents/region_selector/agent1_output \
-    /persistent_data/agents/region_selector/evaluation_results \
-    /persistent_data/agents/text_recognition/debug_crops \
-    /persistent_data/agents/text_recognition/Outputs
-
-# Remove the original directories ONLY if they exist, then create symlinks
+# Remove the original directories and create symlinks to persistent storage
 RUN rm -rf /app/uploads /app/agents 2>/dev/null || true && \
     ln -sfn /persistent_data/uploads /app/uploads && \
     ln -sfn /persistent_data/agents /app/agents
 
+# Create a startup script that ensures directories exist
+RUN echo '#!/bin/bash\n\
+# Ensure all required directories exist in persistent storage\n\
+mkdir -p /persistent_data/uploads \\\n\
+    /persistent_data/agents/evaluator/inputs/related_docs \\\n\
+    /persistent_data/agents/evaluator/results/visualizations \\\n\
+    /persistent_data/agents/evaluator/temp \\\n\
+    /persistent_data/agents/preprocessor/aligned_outputs \\\n\
+    /persistent_data/agents/preprocessor/answer_scripts \\\n\
+    /persistent_data/agents/preprocessor/question_paper_templates \\\n\
+    /persistent_data/agents/region_selector/agent1_output \\\n\
+    /persistent_data/agents/region_selector/evaluation_results \\\n\
+    /persistent_data/agents/text_recognition/debug_crops \\\n\
+    /persistent_data/agents/text_recognition/Outputs\n\
+\n\
+# Start gunicorn\n\
+exec gunicorn server:app --bind 0.0.0.0:8080 --workers 2 --timeout 120\n\
+' > /app/start.sh && chmod +x /app/start.sh
+
 # Expose port 8080 for Railway
 EXPOSE 8080
 
-# Start Flask app with Gunicorn
-CMD ["gunicorn", "server:app", "--bind", "0.0.0.0:8080", "--workers", "2", "--timeout", "120"]
+# Use startup script
+CMD ["/app/start.sh"]
