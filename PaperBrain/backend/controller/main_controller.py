@@ -96,7 +96,7 @@ class PipelineController:
         summaries = []
         try:
             sys.path.append(self.preprocessor_dir)
-            from backend.agents.preprocessor.alignment_agent import run_alignment_agent
+            from agents.preprocessor.alignment_agent import run_alignment_agent
 
             # Process each answer sheet
             for scan_file in scan_files:
