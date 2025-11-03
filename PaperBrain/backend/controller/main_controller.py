@@ -86,24 +86,28 @@ class PipelineController:
         print("\n🔄 Step 1: Running Preprocessor (Alignment)...")
         template_files = [f for f in os.listdir(self.preprocessor_templates_dir) if f.startswith("template_")]
         scan_files = sorted([f for f in os.listdir(self.preprocessor_inputs_dir) if f.startswith("scan_")])
-
+    
         if not template_files or not scan_files:
             print("❌ Missing templates or scans")
             return {"status": "error", "message": "Missing templates or scans.", "summary": {}}
-
+    
         print(f"  Processing {len(scan_files)} answer sheet(s) with {len(template_files)} template(s)")
-
+    
         summaries = []
         try:
-            sys.path.append(self.preprocessor_dir)
-            from agents.preprocessor.alignment_agent import run_alignment_agent
-
+            # Add the preprocessor directory to sys.path if not already there
+            if self.preprocessor_dir not in sys.path:
+                sys.path.insert(0, self.preprocessor_dir)
+            
+            # Import from alignment_agent module directly
+            from alignment_agent import run_alignment_agent
+    
             # Process each answer sheet
             for scan_file in scan_files:
                 scan_path = os.path.join(self.preprocessor_inputs_dir, scan_file)
                 print(f"\n  Processing: {scan_file}")
                 best_result, best_score, best_template = None, 0, None
-
+    
                 # Try each template with this scan
                 for template_file in template_files:
                     template_path = os.path.join(self.preprocessor_templates_dir, template_file)
@@ -115,7 +119,7 @@ class PipelineController:
                             print(f"    ✓ Score: {score}")
                     except Exception as e:
                         print(f"    ✗ Alignment failed for {template_file}: {e}")
-
+    
                 if best_result is not None:
                     output_filename = f"aligned_{os.path.basename(scan_path)}"
                     output_path = os.path.join(self.preprocessor_outputs_dir, output_filename)
@@ -136,23 +140,23 @@ class PipelineController:
                         "alignment_score": 0,
                         "message": "All alignments failed for this scan."
                     })
-
+    
             if any(s["status"] == "completed" for s in summaries):
                 print(f"\n✅ Preprocessor completed. Processed {len([s for s in summaries if s['status'] == 'completed'])}/{len(scan_files)} answer sheet(s)")
             else:
                 print("\n❌ All alignments failed")
                 summary = {"status": "failed", "alignment_score": 0, "message": "All alignments failed."}
                 return {"summary": summary}
-
+    
         except Exception as e:
             print(f"❌ Preprocessor error: {e}")
             import traceback
             traceback.print_exc()
             summary = {"status": "error", "message": str(e)}
             return {"summary": summary}
-
+    
         return {"summary": {"status": "completed", "processed": len(summaries), "details": summaries}}
-
+        
     # -------------------------------------------------------------------------
     # REGION SELECTOR (AUTO TRIGGER AFTER ALIGNMENT)
     # -------------------------------------------------------------------------
