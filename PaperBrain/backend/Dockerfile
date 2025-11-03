@@ -44,6 +44,24 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy all backend code into container
 COPY . .
 
+# Create directory structure that mirrors your data paths
+RUN mkdir -p /persistent_data/uploads \
+    /persistent_data/agents/evaluator/inputs/related_docs \
+    /persistent_data/agents/evaluator/results/visualizations \
+    /persistent_data/agents/evaluator/temp \
+    /persistent_data/agents/preprocessor/aligned_outputs \
+    /persistent_data/agents/preprocessor/answer_scripts \
+    /persistent_data/agents/preprocessor/question_paper_templates \
+    /persistent_data/agents/region_selector/agent1_output \
+    /persistent_data/agents/region_selector/evaluation_results \
+    /persistent_data/agents/text_recognition/debug_crops \
+    /persistent_data/agents/text_recognition/Outputs
+
+# Remove the original directories and create symlinks to persistent storage
+RUN rm -rf /app/uploads /app/agents && \
+    ln -s /persistent_data/uploads /app/uploads && \
+    ln -s /persistent_data/agents /app/agents
+
 # Expose port 8080 for Railway
 EXPOSE 8080
 
