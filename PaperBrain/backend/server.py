@@ -25,12 +25,14 @@ CORS(app, resources={r"/api/*": {"origins": "*"}})
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 FRONTEND_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "frontend", "paperbrain"))
 UPLOAD_ROOT = os.path.join(BASE_DIR, "uploads")
-os.makedirs(UPLOAD_ROOT, exist_ok=True)
+
+# Create upload directory if it doesn't exist (handles symlinks properly)
+if not os.path.exists(UPLOAD_ROOT):
+    os.makedirs(UPLOAD_ROOT, exist_ok=True)
 
 print(f"📁 Base directory: {BASE_DIR}")
 print(f"📁 Frontend directory: {FRONTEND_DIR}")
 print(f"📁 Upload directory: {UPLOAD_ROOT}")
-
 
 def _save_file(field_name: str) -> str:
     """Save uploaded file and return path"""
