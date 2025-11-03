@@ -27,8 +27,8 @@ FRONTEND_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "frontend", "paperbr
 UPLOAD_ROOT = os.path.join(BASE_DIR, "uploads")
 
 # Create upload directory if it doesn't exist (handles symlinks properly)
-if not os.path.exists(UPLOAD_ROOT):
-    os.makedirs(UPLOAD_ROOT, exist_ok=True)
+# if not os.path.exists(UPLOAD_ROOT):
+#     os.makedirs(UPLOAD_ROOT, exist_ok=True)
 
 print(f"📁 Base directory: {BASE_DIR}")
 print(f"📁 Frontend directory: {FRONTEND_DIR}")
@@ -627,7 +627,7 @@ def update_reference_answers() -> Any:
                 updated_count += 1
         
         # Save updated reference answers
-        os.makedirs(os.path.dirname(reference_path), exist_ok=True)
+        # os.makedirs(os.path.dirname(reference_path), exist_ok=True)
         with open(reference_path, "w", encoding="utf-8") as f:
             json.dump(existing_refs, f, indent=4, ensure_ascii=False)
         
@@ -672,7 +672,7 @@ def save_student_info() -> Any:
         existing_map.update(student_info_map)
         
         # Save updated mapping
-        os.makedirs(os.path.dirname(controller.student_info_file), exist_ok=True)
+        # os.makedirs(os.path.dirname(controller.student_info_file), exist_ok=True)
         with open(controller.student_info_file, "w", encoding="utf-8") as f:
             json.dump(existing_map, f, indent=4, ensure_ascii=False)
         
