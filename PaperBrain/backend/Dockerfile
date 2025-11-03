@@ -57,10 +57,10 @@ RUN mkdir -p /persistent_data/uploads \
     /persistent_data/agents/text_recognition/debug_crops \
     /persistent_data/agents/text_recognition/Outputs
 
-# Remove the original directories and create symlinks to persistent storage
-RUN rm -rf /app/uploads /app/agents && \
-    ln -s /persistent_data/uploads /app/uploads && \
-    ln -s /persistent_data/agents /app/agents
+# Remove the original directories ONLY if they exist, then create symlinks
+RUN rm -rf /app/uploads /app/agents 2>/dev/null || true && \
+    ln -sfn /persistent_data/uploads /app/uploads && \
+    ln -sfn /persistent_data/agents /app/agents
 
 # Expose port 8080 for Railway
 EXPOSE 8080
